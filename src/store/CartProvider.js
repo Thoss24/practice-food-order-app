@@ -38,7 +38,6 @@ const CartProvider = (props) => {
             type: 'ADD',
             item: item
         });
-        console.log(cartState.items)
     };
 
     const removeItemHandler = (id) => {
