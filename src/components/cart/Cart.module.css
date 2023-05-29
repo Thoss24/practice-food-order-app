@@ -1,0 +1,19 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+    height: 100vh;
+    width: 100%;
+}
+
+.cart-container {
+    position: fixed;
+    background-color: white;
+}
+
+.order {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
