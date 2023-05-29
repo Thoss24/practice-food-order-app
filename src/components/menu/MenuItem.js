@@ -1,15 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import CartContext from "../../store/cart-context";
+import classes from './MenuItem.module.css';
 
 const MenuItem = (props) => {
     const cartCtx = useContext(CartContext);
 
+    const amountInputRef = useRef();
+
     const addMenuItemHandler = () => {
+
+      const currentAmount = Number(amountInputRef.current.value)
+
         cartCtx.addItem({
             name: props.name,
             price: props.price,
             id: props.id,
-            totalAmount: 1
+            amount: currentAmount
         });
     };
 
@@ -23,7 +29,8 @@ const MenuItem = (props) => {
         <p>{props.description}</p>
       </div>
       <div>
-        <button onClick={addMenuItemHandler}></button>
+        <input type="number" name="" id="" defaultValue='1' ref={amountInputRef}/>
+        <button className={classes.button} onClick={addMenuItemHandler}>Add</button>
       </div>
     </div>
   );

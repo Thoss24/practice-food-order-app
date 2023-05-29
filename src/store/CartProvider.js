@@ -8,6 +8,7 @@ const defaultCartState = {
 
 const cartReducer = (state, action) => {
     const existingCartItemIndex = state.items.findIndex((item) => item.id === action.item.id);
+    console.log(action, state)
 
     const existingCartItem = state.items[existingCartItemIndex];
     let updatedItem;
@@ -38,6 +39,7 @@ const CartProvider = (props) => {
             type: 'ADD',
             item: item
         });
+        console.log(cartState)
     };
 
     const removeItemHandler = (id) => {

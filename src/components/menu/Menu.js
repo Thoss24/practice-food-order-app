@@ -1,4 +1,5 @@
-import MenuItem from "./MenuItem"
+import MenuItem from "./MenuItem";
+import classes from './Menu.module.css';
 
 const menu = [
     {
@@ -30,7 +31,7 @@ const menu = [
 const Menu = () => {
 
     return (
-        <div>
+        <div className={classes.menu}>
         {menu.map((item) => (
             <MenuItem 
             id={item.key}
