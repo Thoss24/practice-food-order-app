@@ -1,4 +1,4 @@
-import React, { useContext, Fragment } from "react";
+import React, { useContext } from "react";
 import CartContext from "../../store/cart-context";
 import CartItem from "./CartItem";
 import classes from "./Cart.module.css";
@@ -10,8 +10,16 @@ const Cart = (props) => {
     props.onHideCart();
   };
 
+  const increaseItemAmountHandler = (item) => {
+    cartCtx.addItem({...item, amount: 1})
+  };
+
+  const decreaseItemAmountHandler = (id) => {
+    cartCtx.removeItem(id)
+  };
+
   return (
-    <Fragment>
+    <div className={classes.container}>
       <div className={classes.backdrop} />
       <div className={classes["cart-container"]}>
         {cartCtx.items.map((item) => (
@@ -19,13 +27,15 @@ const Cart = (props) => {
             price={item.price}
             name={item.name}
             totalAmount={item.amount}
+            increaseAmount={increaseItemAmountHandler.bind(null, item)}
+            decreaseAmount={decreaseItemAmountHandler.bind(null, item.id)}
           />
         ))}
         <button className={classes.order} onClick={hideCartHandler}>
           Order
         </button>
       </div>
-    </Fragment>
+    </div>
   );
 };
 

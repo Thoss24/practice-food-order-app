@@ -9,8 +9,8 @@ const CartItem = (props) => {
                 <p>x {props.totalAmount}</p>
             </div>
             <div>
-                <button>-</button>
-                <button>+</button>
+                <button onClick={props.decreaseAmount}>-</button>
+                <button onClick={props.increaseAmount}>+</button>
             </div>
         </div>
     );
