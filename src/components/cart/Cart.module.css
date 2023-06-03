@@ -25,3 +25,8 @@
     border-radius: 8px;
     border: none;
 }
+
+.checkout-container {
+    display: flex;
+    flex-direction: row;
+}

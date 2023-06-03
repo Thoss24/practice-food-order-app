@@ -10,19 +10,19 @@ const menu = [
     },
     {
         name: 'salad', 
-        price: '£10',
+        price: '£12',
         key: 2,
         description: 'test'
     },
     {
         name: 'hot dog', 
-        price: '£10',
+        price: '£15',
         key: 3,
         description: 'test'
     },
     {
         name: 'salmon', 
-        price: '£10',
+        price: '£17',
         key: 4,
         description: 'test'
     },

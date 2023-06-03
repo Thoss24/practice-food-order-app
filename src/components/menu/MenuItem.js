@@ -10,12 +10,16 @@ const MenuItem = (props) => {
     const addMenuItemHandler = () => {
 
       const currentAmount = Number(amountInputRef.current.value)
+      const currentAmountNumber = +currentAmount
+
+      const itemPrice = props.price.slice(1);
+      const itemPriceNumber = +itemPrice
 
         cartCtx.addItem({
             name: props.name,
-            price: props.price,
+            price: itemPriceNumber,
             id: props.id,
-            amount: currentAmount
+            amount: currentAmountNumber
         });
     };
 

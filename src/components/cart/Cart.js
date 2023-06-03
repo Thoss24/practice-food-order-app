@@ -31,9 +31,14 @@ const Cart = (props) => {
             decreaseAmount={decreaseItemAmountHandler.bind(null, item.id)}
           />
         ))}
+        <div className={classes['checkout-container']}>
         <button className={classes.order} onClick={hideCartHandler}>
           Order
         </button>
+        <div>
+          £ {cartCtx.totalAmount}
+        </div>
+        </div>
       </div>
     </div>
   );
