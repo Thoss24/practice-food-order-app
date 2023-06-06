@@ -22,7 +22,7 @@ const Cart = (props) => {
     <div className={classes.container}>
       <div className={classes.backdrop} />
       <div className={classes["cart-container"]}>
-        {cartCtx.items.map((item) => (
+        {cartCtx.totalAmount === 0 ? `Basket is empty` : cartCtx.items.map((item) => (
           <CartItem
             price={item.price}
             name={item.name}
@@ -36,7 +36,7 @@ const Cart = (props) => {
           Order
         </button>
         <div>
-          £ {cartCtx.totalAmount}
+          {cartCtx.totalAmount}
         </div>
         </div>
       </div>
