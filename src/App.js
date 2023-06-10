@@ -3,8 +3,9 @@ import Menu from "./components/menu/Menu";
 import Header from "./components/header/Header";
 import Button from "./components/UI/Button";
 import DemoOutput from "./components/UI/DemoOutput";
+import DemoList from "./components/UI/DemoList";
 import Cart from "./components/cart/Cart";
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 
 function App() {
 
@@ -13,6 +14,8 @@ function App() {
   const [paragraphDisplay, setParagraphDisplay] = useState(false);
 
   const [allowToggle, setAllowToggle] = useState(false)
+
+  const [listTitle, setListTitle] = useState("My List")
 
   console.log("State re-evaluation")
 
@@ -34,7 +37,13 @@ function App() {
     if (allowToggle) {
       setParagraphDisplay((prevPara) => !prevPara)
     }
-  }, [allowToggle])
+  }, [allowToggle]);
+
+  const changeTitleHandler = useCallback(() => {
+    setListTitle("New Title!")
+  }, [])
+
+  const listItems = useMemo(() => [5, 3, 10, 9, 1], [])
 
   if (isCartDisplaying) {
     cartDisplay = (
@@ -48,8 +57,10 @@ function App() {
       <Menu />
       {cartDisplay}
       {<DemoOutput showing={paragraphDisplay}></DemoOutput>}
-      <Button onClick={allowToggleHandler}></Button>
-      <Button onClick={toggleParagraphHandler}></Button>
+      <Button onClick={allowToggleHandler}>Allow toggle</Button>
+      <Button onClick={toggleParagraphHandler}>Toggle paragraph</Button>
+      <Button onClick={changeTitleHandler}>Change title</Button>
+      <DemoList title={listTitle} items={listItems}></DemoList>
     </CartProvider>
   );
 }
